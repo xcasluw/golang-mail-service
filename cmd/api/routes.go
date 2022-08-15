@@ -24,5 +24,7 @@ func (app *Config) routes() http.Handler {
 	// We can check if the serve is still alive
 	mux.Use(middleware.Heartbeat("/ping"))
 
+	mux.Post("/send", app.SendMail)
+
 	return mux
 }
